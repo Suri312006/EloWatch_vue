@@ -27,21 +27,20 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
-SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(days=30),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=180),
-    'ROTATE_REFRESH_TOKENS': False
+REST_FRAMEWORK = {
+    # ...
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
 }
 
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication'
-    ),
-    'DEFAULT_PERMISSION_CLASSES':(
-        'rest_framework.permissions.IsAuthenticated'
-    )
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),  # Adjust as needed
+    'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),  # Optional, adjust as needed
+    'SLIDING_TOKEN_LIFETIME': timedelta(days=1),  # Optional, adjust as needed
+    'SLIDING_TOKEN_REFRESH_LIFETIME_LATE': timedelta(hours=12),  # Optional, adjust as needed
+    'SLIDING_TOKEN_LIFETIME_LATE': timedelta(hours=12),  # Optional, adjust as needed
 }
 
 CORS_ALLOWED_ORIGINS = [
@@ -59,14 +58,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'djangorestframework',
-    'djangorestframework_simplejwt',
-    'corsheaders'
+    'rest_framework',
+    'rest_framework_simplejwt',
+    'corsheaders',
+    'customauth'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'customauth.middleware.AnonymousUserMiddleware', #custom middleware to process data
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
