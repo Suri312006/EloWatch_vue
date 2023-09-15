@@ -14,33 +14,8 @@
               "type": "empty",
               "state": {}
             }
-          },
-          {
-            "id": "f2dc01450989f397",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "ew_back/ew_back.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "5155cb0961d32d02",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "ew_back/user.md",
-                "mode": "source",
-                "source": false
-              }
-            }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -106,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "ew_back/user.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -123,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "ew_back/user.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -145,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "ew_back/user.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -167,14 +138,14 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "e64d35375966a9f4",
+  "active": "c66c1c58a840f945",
   "lastOpenFiles": [
     "ew_front/homepage.md",
-    "ew_back/user.md",
-    "ew_back",
-    "ew_front",
     "ew_front/ew_front.md",
+    "ew_front",
+    "ew_back/user.md",
     "ew_back/ew_back.md",
+    "ew_back",
     "GANG GANG MF.md"
   ]
 }
