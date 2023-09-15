@@ -50,7 +50,10 @@ export default {
     };
   },
   created() {
-    this.delayedScrollToBottom();
+    setTimeout(()=>{
+      this.delayedScrollToBottom();
+    }, 700)
+    
   },
   methods: {
     search() {
@@ -67,7 +70,7 @@ export default {
         const elapsed = timestamp - start;
 
         if (elapsed < duration) {
-          const easingFactor = Math.pow(elapsed / duration, 5); // You can adjust the power for different acceleration curves
+          const easingFactor = Math.pow(elapsed / duration, 7); // You can adjust the power for different acceleration curves
           const scrollPosition = easingFactor * (document.documentElement.scrollHeight - window.innerHeight);
           window.scrollTo(0, scrollPosition);
 
@@ -76,7 +79,6 @@ export default {
           window.scrollTo(0, document.documentElement.scrollHeight);
         }
       }
-
       requestAnimationFrame(animateScroll)
     }
   },
