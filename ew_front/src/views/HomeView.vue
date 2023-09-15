@@ -67,11 +67,21 @@ export default {
           })
           .then(response=>{
             console.log('response:', response.data)
+
+            if(response.data.message ==='exists'){
+              // if user exists, pushes them to profile view with their name
+
+              this.$router.push(`/profile/${this.summonerName}`)
+            }
+
+            if(response.data.message ==='does not exist'){
+              //TODO have a toast or something saying that the user doesnt exist
+            }
           })
           .catch(error =>{
             console.log('error', error)
           })
-      this.summonerName = ''
+      // this.summonerName = ''
     },
 
 
