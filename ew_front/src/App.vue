@@ -4,13 +4,14 @@
 
 
 
-  <div  class="bg-black py-4 text-white text-center font-nova-mono text-4xl">
+  <div  class="bg-black py-7 text-white text-center font-nova-mono text-5xl">
     <RouterLink to="/">
         EloWatch
+        
     </RouterLink>
   </div>
-
-  <main class="px-8 py-6 bg-gray-100">
+  <hr class="border-t-2 border-white mt-1 ">
+  <main class="px-8 py-6 bg-black">
       <RouterView />
   </main>
 
@@ -22,8 +23,8 @@
 .font-nova-mono {
   font-family: 'Nova Mono', monospace;
   /* You can adjust the font size, letter spacing, and other properties here */
-  letter-spacing: 2px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: 0px;
+  text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.5);
 }
 </style>
 
