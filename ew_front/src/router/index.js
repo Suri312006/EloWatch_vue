@@ -1,9 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import FeedView from '../views/FeedView.vue'
 import SignupView from '../views/SignupView.vue'
 import LoginView from '../views/LoginView.vue'
-import MessagesView from '../views/MessagesView.vue'
 import SearchView from '../views/SearchView.vue'
 
 const router = createRouter({
