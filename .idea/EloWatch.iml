@@ -15,7 +15,9 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/environment" />
+      <excludeFolder url="file://$MODULE_DIR$/ew_front/node_modules" />
     </content>
+    <content url="file://$MODULE_DIR$/ew_front/node_modules" />
     <orderEntry type="jdk" jdkName="Python 3.11 (EloWatch)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

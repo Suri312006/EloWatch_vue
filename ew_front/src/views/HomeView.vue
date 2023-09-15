@@ -44,6 +44,7 @@ font-family: 'PT Mono', monospace;
 </style>
 
 <script>
+import axios from 'axios'
 export default {
   data() {
     return {
@@ -60,10 +61,17 @@ export default {
     search() {
       // Implement your search logic here
       console.log('Searching for:', this.summonerName);
-      this.summonerName = ''
-
       axios
-          .post('')
+          .post('/api/search', {
+            query: this.summonerName
+          })
+          .then(response=>{
+            console.log('response:', response.data)
+          })
+          .catch(error =>{
+            console.log('error', error)
+          })
+      this.summonerName = ''
     },
 
 
@@ -87,8 +95,10 @@ export default {
           window.scrollTo(0, document.documentElement.scrollHeight);
         }
       }
+
       requestAnimationFrame(animateScroll)
-    }
+    },
+
   },
 };
 </script>
