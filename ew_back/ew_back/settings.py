@@ -65,9 +65,12 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     'corsheaders',
+    'pyot',
     'user',
 
 ]
+
+PYOT_CONFS = ['ew_back.pyot_scripts.pyotconf']
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

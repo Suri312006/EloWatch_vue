@@ -61,7 +61,14 @@ export default {
       // Implement your search logic here
       console.log('Searching for:', this.summonerName);
       this.summonerName = ''
+
+      axios
+          .post('')
     },
+
+
+
+
 
     delayedScrollToBottom() {
       const duration = 1000; // Animation duration in milliseconds
