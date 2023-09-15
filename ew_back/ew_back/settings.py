@@ -70,7 +70,7 @@ INSTALLED_APPS = [
 
 ]
 
-PYOT_CONFS = ['ew_back.pyot_scripts.pyotconf']
+PYOT_CONFS = ['pyot_scripts.pyotconf']
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

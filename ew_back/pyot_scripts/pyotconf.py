@@ -1,8 +1,9 @@
-import os
 from pyot.conf.model import activate_model, ModelConf
 from pyot.conf.pipeline import activate_pipeline, PipelineConf
-import api_key
 
+from .api_key import api_key_handler
+
+key = api_key_handler()
 @activate_model("lol")
 class LolModel(ModelConf):
     default_platform = "na1"
@@ -29,6 +30,6 @@ class LolPipeline(PipelineConf):
         },
         {
             "backend": "pyot.stores.riotapi.RiotAPI",
-            "api_key": api_key.get_key(),
+            "api_key": key.get_key(),
         }
     ]
