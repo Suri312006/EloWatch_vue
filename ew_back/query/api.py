@@ -11,7 +11,8 @@ def search(request) -> JsonResponse:
     """
 
     :param request: axios post request containing user query
-    :return: Json Response whether requested user exists
+    :return: Json Response whether requested user exists. If user exists, returns name aswell
+
     """
     name = request.data['query']
 

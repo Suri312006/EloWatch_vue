@@ -71,7 +71,7 @@ export default {
             if(response.data.message ==='exists'){
               // if user exists, pushes them to profile view with their name
 
-              this.$router.push(`/profile/${this.summonerName}`)
+              this.$router.push(`/profile/${response.data.name}`)
             }
 
             if(response.data.message ==='does not exist'){
