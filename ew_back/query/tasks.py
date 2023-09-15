@@ -18,6 +18,7 @@ def establish_summoner(summoner_name: str):
 
     asyncio.set_event_loop(loop)
     try:
+
         x = loop.run_until_complete(lol.Summoner(name=summoner_name).get())
     finally:
         asyncio.set_event_loop(global_loop)
