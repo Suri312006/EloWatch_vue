@@ -14,8 +14,21 @@
               "type": "empty",
               "state": {}
             }
+          },
+          {
+            "id": "cc1eb4eb0d7f3fe7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "ew_back/ew_back.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -81,6 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "ew_back/ew_back.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "ew_back/ew_back.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +133,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "ew_back/ew_back.md"
+              }
             }
           }
         ]
@@ -138,13 +155,20 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "c66c1c58a840f945",
+  "active": "e64d35375966a9f4",
   "lastOpenFiles": [
+    "ew_back/Pyot Files",
+    "ew_back/User/api.md",
+    "ew_back/User/user.md",
+    "ew_front/LogIn.md",
+    "ew_back/User",
+    "ew_back/Untitled.md",
+    "ew_front/SignUp.md",
+    "ew_back/ew_back.md",
+    "Todo.md",
     "ew_front/homepage.md",
     "ew_front/ew_front.md",
     "ew_front",
-    "ew_back/user.md",
-    "ew_back/ew_back.md",
     "ew_back",
     "GANG GANG MF.md"
   ]
