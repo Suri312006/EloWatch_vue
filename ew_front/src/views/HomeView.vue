@@ -10,7 +10,7 @@
       <div class="bg-black rounded-sm p-4 shadow-md">
         <input
           type="text"
-          class="w-64 py-2 px-4 border rounded-sm font-nova-pt-mono focus:outline-none focus:ring focus:border-gray-300"
+          class="w-64 py-2 px-4 border rounded-sm font-nova-pt-mono "
           placeholder="Summoner name" 
           v-model="summonerName"
           @keydown.enter="search"
