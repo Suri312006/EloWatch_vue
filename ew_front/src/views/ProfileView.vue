@@ -13,7 +13,8 @@
     >
     <div class="flex flex-col col-span-4">
       <h1 class="col-span-2 mt-4 ml-5 font-nova-pt-mono text-white text-5xl">SirYum</h1>
-      <h1 class="ml-8 mt-1 text-white">ladder rank<span class="text-blue-400"> 1 (top 100%)</span></h1>
+      <h1 class="ml-8 col-span-2 mt-3 ml-5 font-nova-mono text-white text-xl">Level 200</h1>
+      <h1 class="ml-8 col-span-2 mt-3 ml-5 font-nova-mono text-white text-xl">Ladder Rank<span class="text-blue-400 text-glow"> 1 (top 100%)</span></h1>
     </div>
 
     
@@ -27,6 +28,9 @@
   font-family: 'Nova Mono', monospace;
   /* You can adjust the font size, letter spacing, and other properties here */
   letter-spacing: 0px;
+
+}
+.text-glow{
   text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.5);
 }
 .font-nova-pt-mono{
@@ -40,12 +44,24 @@ font-family: 'PT Mono', monospace;
 import {onMounted} from 'vue'
 import axios from 'axios'
 import {useRoute} from 'vue-router'
+import {reactive} from 'vue'
 
 onMounted(() =>{
   getProfile()
 })
 
+//router var
 const route = useRoute()
+
+//plug in data
+const summoner = reactive({
+  summonerName : null,
+  level : null,
+  ladderRank : null,
+  ladderRankPercent : null,
+})
+
+
 function getProfile(){
   console.log('getting profile')
 
@@ -59,6 +75,4 @@ function getProfile(){
       })
 }
 
-</script>
-<script setup>
 </script>

@@ -37,6 +37,8 @@ def profile(request, name) -> JsonResponse:
     :param name: name of summoner, passed in through urls.py
     :return: basic summoner info
     """
+    summoner_name =...
+
 
     return JsonResponse({'message': 'received'})
 
