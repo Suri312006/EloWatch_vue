@@ -22,6 +22,20 @@ async def check_summoner(summoner_name):
     return True
 
 @resource_manager.as_decorator
+async def get_summoner(summoner_name):
+    """
+
+    :param summoner_name: summoner name
+    :return: returns summoner
+    """
+
+    summoner = await lol.Summoner(name=summoner_name).get()
+
+    return summoner
+
+
+
+@resource_manager.as_decorator
 async def get_name(summoner_name):
     """
 

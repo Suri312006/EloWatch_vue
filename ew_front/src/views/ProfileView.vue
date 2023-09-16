@@ -12,9 +12,9 @@
         class="rounded col-span 2"
     >
     <div class="flex flex-col col-span-4">
-      <h1 class="col-span-2 mt-4 ml-5 font-nova-pt-mono text-white text-5xl">SirYum</h1>
-      <h1 class="ml-8 col-span-2 mt-3 ml-5 font-nova-mono text-white text-xl">Level 200</h1>
-      <h1 class="ml-8 col-span-2 mt-3 ml-5 font-nova-mono text-white text-xl">Ladder Rank<span class="text-blue-400 text-glow"> 1 (top 100%)</span></h1>
+      <h1 class="col-span-2 mt-2 ml-5 font-nova-pt-mono text-white text-5xl">SirYum</h1>
+      <h1 class="ml-8 col-span-2 mt-2 ml-5 font-nova-mono text-white text-xl">Level 200</h1>
+      <h1 class="ml-8 col-span-2 mt-1 ml-5 font-nova-mono text-white text-xl">Ladder Rank<span class="text-blue-400 text-glow"> 1 (top 100%)</span></h1>
     </div>
 
     

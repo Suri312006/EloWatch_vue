@@ -37,8 +37,9 @@ def profile(request, name) -> JsonResponse:
     :param name: name of summoner, passed in through urls.py
     :return: basic summoner info
     """
-    summoner_name =...
+    summoner = asyncio.run(get_summoner(name))
 
+    print(summoner.name)
 
     return JsonResponse({'message': 'received'})
 

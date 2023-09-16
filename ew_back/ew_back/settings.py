@@ -67,6 +67,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'pyot',
     'user',
+    'query'
 
 ]
 
