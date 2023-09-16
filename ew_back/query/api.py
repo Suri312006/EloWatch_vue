@@ -11,7 +11,7 @@ def search(request) -> JsonResponse:
     """
 
     :param request: axios post request containing user query
-    :return: Json Response whether requested user exists. If user exists, returns name aswell
+    :return: Json Response whether requested user exists. If user exists, returns name as well
 
     """
     name = request.data['query']
@@ -30,9 +30,15 @@ def search(request) -> JsonResponse:
 
 
 
+def profile(request, name) -> JsonResponse:
+    """
 
+    :param request: axios post request
+    :param name: name of summoner, passed in through urls.py
+    :return: basic summoner info
+    """
 
-
+    return JsonResponse({'message': 'received'})
 
 
 

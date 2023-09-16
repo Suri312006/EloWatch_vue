@@ -62,7 +62,7 @@ export default {
       // Implement your search logic here
       console.log('Searching for:', this.summonerName);
       axios
-          .post('/api/search', {
+          .post('/query/', {
             query: this.summonerName
           })
           .then(response=>{

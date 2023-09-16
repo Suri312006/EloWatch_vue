@@ -5,7 +5,7 @@
 
 
   <div  class="bg-black py-7 text-white text-center font-nova-mono text-5xl">
-    <RouterLink to="/">
+    <RouterLink :to="{name: 'home'}">
         EloWatch
         
     </RouterLink>
