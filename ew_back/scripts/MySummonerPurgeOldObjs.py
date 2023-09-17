@@ -7,12 +7,12 @@ from datetime import timedelta
 from django.utils import timezone
 from collections import Counter
 
-from query.models import MySummoner
-
-
 sys.path.append(os.path.join(os.path.abspath(os.path.dirname(__file__)), '..'))
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", 'ew_back.settings')
 django.setup()
+
+from query.models import MySummoner
+
 
 expiry_time = timedelta(days=0, hours=0, minutes=0, seconds=0, microseconds=0, milliseconds=0)
 now = timezone.now()

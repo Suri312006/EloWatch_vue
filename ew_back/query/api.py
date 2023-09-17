@@ -50,14 +50,31 @@ def profile(request, name) -> JsonResponse:
         for instance in existing_instances:
             instance.delete()
 
+
+    rank_data = asyncio.run(get_rank(summoner))
+    print(rank_data)
+
     # creates new model in database
     model_summoner = MySummoner.objects.create(
         name=summoner.name,
         level=summoner.level,
-        rank=asyncio.run(get_rank(summoner)),
+
         ladder_rank_percentage=asyncio.run(get_ladder_rank(summoner)),
         icon_path=asyncio.run(get_icon_path(summoner))
     )
+    model_rank = MyRank.objects.create(
+        icon_path=asyncio.run(get_rank_icon_path(rank_data['tier'])),
+        tier=rank_data['tier'],
+        division=rank_data['division'],
+        lp=rank_data['lp'],
+        rank_of = model_summoner,
+        wins=rank_data["wins"],
+        losses=rank_data["losses"]
+    )
+
+    model_summoner.rank = model_rank
+
+
 
     # serializer to make data sending easier
     serializer = MySummonerSerialzier(model_summoner)

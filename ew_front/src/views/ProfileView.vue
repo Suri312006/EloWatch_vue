@@ -17,7 +17,9 @@
       <h1 class="ml-8 col-span-2 mt-1 ml-5 font-nova-mono text-white text-l" >Top <span class="text-blue-400 text-glow"> {{ summoner.ladder_rank_percentage }}%</span></h1>
     </div>
 
-    
+    <div class="col-span-2">
+      <Rank v-bind:rank="rank_data"/>
+    </div>
   </div>
 </template>
 
@@ -42,7 +44,7 @@ font-family: 'PT Mono', monospace;
 
 <script>
 import axios from 'axios'
-
+import Rank from '@/components/Rank.vue'
 export default {
   name: 'ProfileView',
   data() {
@@ -55,6 +57,10 @@ export default {
         icon_path: null
       }
     }
+  },
+  components: {
+    Rank
+
   },
 
   mounted() {

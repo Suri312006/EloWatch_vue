@@ -71,7 +71,7 @@ async def testing(summoner):
 
 
 @resource_manager.as_decorator
-async def get_rank(summoner):
+async def get_rank(summoner) -> dict:
     # TODO not sure if this is the best way to send back ranked info
 
     # this how to access rank :0
@@ -82,8 +82,28 @@ async def get_rank(summoner):
     rank = comp.tier
     division = comp.rank
 
-    return f'{rank} {division} {lp} LP'
+    wins=comp.wins
+    losses = comp.losses
 
+    return {
+        'tier': rank,
+        'division': division,
+        'lp': lp,
+        'wins': wins,
+        'losses': losses
+    }
+
+@resource_manager.as_decorator
+async def get_rank_icon_path(division):
+    """
+
+    :param division: ranked division of summoner
+    :return: absolute path for rank icon via cdragon
+    """
+    lower_case_div = division.lower()
+    link=f'https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-shared-components/global/default/images/{lower_case_div}.png'
+
+    return link
 @resource_manager.as_decorator
 async def get_ladder_rank(summoner):
     """
