@@ -8,9 +8,10 @@ class MySummoner(models.Model):
     level = models.IntegerField(default=0)
     rank = models.CharField(max_length=20)
     ladder_rank_percentage = models.FloatField(default=0)
+
+    icon_path = models.CharField(max_length=200, null=True)
     #need to do more
 
     created_at = models.DateTimeField(auto_now_add=True)
 
 
-    # TODO implement profile pic here too

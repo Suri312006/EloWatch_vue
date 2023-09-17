@@ -42,11 +42,12 @@ def profile(request, name) -> JsonResponse:
 
     # gets summoner object
     summoner = asyncio.run(get_summoner(name))
+    print(asyncio.run(get_icon_path(summoner)))
 
     # Deletes any existing data in the database for the searched summoner
-    existing_instaces = MySummoner.objects.filter(name=str(summoner.name))
-    if len(existing_instaces) > 0:
-        for instance in existing_instaces:
+    existing_instances = MySummoner.objects.filter(name=str(summoner.name))
+    if len(existing_instances) > 0:
+        for instance in existing_instances:
             instance.delete()
 
     # creates new model in database
@@ -55,6 +56,7 @@ def profile(request, name) -> JsonResponse:
         level=summoner.level,
         rank=asyncio.run(get_rank(summoner)),
         ladder_rank_percentage=asyncio.run(get_ladder_rank(summoner)),
+        icon_path=asyncio.run(get_icon_path(summoner))
     )
 
     # serializer to make data sending easier
