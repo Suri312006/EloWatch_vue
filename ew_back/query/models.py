@@ -7,7 +7,7 @@ class MySummoner(models.Model):
     name = models.CharField(primary_key = True, max_length=30)
     level = models.IntegerField(default=0)
     rank = models.CharField(max_length=20)
-    ladder_rank_percentage = models.IntegerField(0)
+    ladder_rank_percentage = models.FloatField(default=0)
     #need to do more
 
     created_at = models.DateTimeField(auto_now_add=True)
