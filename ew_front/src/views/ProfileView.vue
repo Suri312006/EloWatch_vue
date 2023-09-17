@@ -6,7 +6,7 @@
 
   <div class="bg-black grid grid-cols-12">
     <img
-        src="https://opgg-static.akamaized.net/meta/images/profile_icons/profileIcon4656.jpg?image=q_auto,f_webp,w_auto&v=1694664078578"
+        :src="summoner.icon_path"
         alt="penis"
 
         class="rounded col-span 2"
@@ -51,7 +51,8 @@ export default {
         name: null,
         level: null,
         rank: null,
-        ladder_rank_percentage: null
+        ladder_rank_percentage: null,
+        icon_path: null
       }
     }
   },
