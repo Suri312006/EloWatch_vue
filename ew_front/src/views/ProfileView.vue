@@ -4,11 +4,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Nova+Mono&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Nova+Mono&family=PT+Mono&display=swap" rel="stylesheet">
 
-  <div class="bg-black grid grid-cols-12">
+  <div class="max-w-7xl mx-auto grid grid-cols-5 gap-3">
     <img
         :src="summoner.icon_path"
         alt="penis"
-
         class="rounded col-span 2"
     >
     <div class="flex flex-col col-span-4">
@@ -17,7 +16,7 @@
       <h1 class="ml-8 col-span-2 mt-1 ml-5 font-nova-mono text-white text-l" >Top <span class="text-blue-400 text-glow"> {{ summoner.ladder_rank_percentage }}%</span></h1>
     </div>
 
-    <div v-if="summoner" class="col-span-2">
+    <div class="main-right col-span-1 space-y-4">
       <Rank v-bind:rank_data="summoner.rank"/>
     </div>
   </div>
