@@ -14,7 +14,7 @@
     <div class="flex flex-col col-span-4">
       <h1 class="col-span-2 mt-2 ml-5 font-nova-pt-mono text-white text-5xl" >{{ summoner.name}}</h1>
       <h1 class="ml-8 col-span-2 mt-2 ml-5 font-nova-mono text-white text-xl"  >Level {{ summoner.level }}</h1>
-      <h1 class="ml-8 col-span-2 mt-1 ml-5 font-nova-mono text-white text-l" >Top <span class="text-blue-400 text-glow"> {{ summoner.ladder_rank_percentage }}%</span> of Players</h1>
+      <h1 class="ml-8 col-span-2 mt-1 ml-5 font-nova-mono text-white text-l" >Top <span class="text-blue-400 text-glow"> {{ summoner.ladder_rank_percentage }}%</span></h1>
     </div>
 
     

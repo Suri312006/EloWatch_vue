@@ -86,6 +86,11 @@ async def get_rank(summoner):
 
 @resource_manager.as_decorator
 async def get_ladder_rank(summoner):
+    """
+
+    :param summoner: pyot summoner
+    :return: ladder percentage of summoner
+    """
 
     rank_to_percent = {
         "CHALLENGER": 0.024,
@@ -137,6 +142,14 @@ async def get_ladder_rank(summoner):
     rank_percentage = rank_to_percent[rank]
 
     return rank_percentage
+
+@resource_manager.as_decorator
+async def get_icon_path(summoner):
+    icon = await summoner.profile_icon.get()
+    path = icon.icon_abspath
+
+    return path
+
 
 
 #
