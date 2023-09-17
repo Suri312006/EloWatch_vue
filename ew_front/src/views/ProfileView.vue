@@ -12,9 +12,9 @@
         class="rounded col-span 2"
     >
     <div class="flex flex-col col-span-4">
-      <h1 class="col-span-2 mt-2 ml-5 font-nova-pt-mono text-white text-5xl">SirYum</h1>
-      <h1 class="ml-8 col-span-2 mt-2 ml-5 font-nova-mono text-white text-xl">Level 200</h1>
-      <h1 class="ml-8 col-span-2 mt-1 ml-5 font-nova-mono text-white text-xl">Ladder Rank<span class="text-blue-400 text-glow"> 1 (top 100%)</span></h1>
+      <h1 class="col-span-2 mt-2 ml-5 font-nova-pt-mono text-white text-5xl" >{{ summoner.name}}</h1>
+      <h1 class="ml-8 col-span-2 mt-2 ml-5 font-nova-mono text-white text-xl"  >Level {{ summoner.level }}</h1>
+      <h1 class="ml-8 col-span-2 mt-1 ml-5 font-nova-mono text-white text-l" >Top <span class="text-blue-400 text-glow"> {{ summoner.ladder_rank_percentage }}%</span> of Players</h1>
     </div>
 
     
@@ -40,39 +40,83 @@ font-family: 'PT Mono', monospace;
 }
 </style>
 
-<script setup>
-import {onMounted} from 'vue'
+<script>
 import axios from 'axios'
-import {useRoute} from 'vue-router'
-import {reactive} from 'vue'
 
-onMounted(() =>{
-  getProfile()
-})
+export default {
+  name: 'ProfileView',
+  data() {
+    return {
+      summoner: {
+        name: null,
+        level: null,
+        rank: null,
+        ladder_rank_percentage: null
+      }
+    }
+  },
 
-//router var
-const route = useRoute()
+  mounted() {
+    this.getProfile()
+  },
 
-//plug in data
-const summoner = reactive({
-  summonerName : null,
-  level : null,
-  ladderRank : null,
-  ladderRankPercent : null,
-})
+  methods: {
+    getProfile() {
+      console.log('getting profile')
 
+      axios
+          .get(`/query/profile/${this.$route.params.name}/`)
+          .then(response => {
 
-function getProfile(){
-  console.log('getting profile')
+            this.summoner = response.data.summoner
+            console.log(this.summoner)
+          })
+          .catch(error => {
+            console.log('error', error)
+          })
 
-  axios
-      .get(`/query/profile/${route.params.name}/`)
-      .then(response=>{
-        console.log('response:', response.data)
-      })
-      .catch(error =>{
-        console.log('error', error)
-      })
+    }
+  }
 }
-
 </script>
+
+<!--<script setup>-->
+<!--import {onMounted} from 'vue'-->
+<!--import axios from 'axios'-->
+<!--import {useRoute} from 'vue-router'-->
+<!--import {reactive} from 'vue'-->
+<!--import { onBeforeMount } from 'vue'-->
+
+
+<!--onBeforeMount(() =>{-->
+<!--  getProfile()-->
+<!--})-->
+
+<!--//router var-->
+<!--const route = useRoute()-->
+
+<!--//plug in data-->
+<!--let summoner = reactive({-->
+<!--  name : null,-->
+<!--  level : null,-->
+<!--  rank : null,-->
+<!--  ladder_rank_percentage : null,-->
+<!--})-->
+
+
+<!--function getProfile(){-->
+<!--  console.log('getting profile')-->
+
+<!--  axios-->
+<!--      .get(`/query/profile/${route.params.name}/`)-->
+<!--      .then(response=>{-->
+
+<!--        summoner = response.data.summoner-->
+<!--        console.log(summoner)-->
+<!--      })-->
+<!--      .catch(error =>{-->
+<!--        console.log('error', error)-->
+<!--      })-->
+<!--}-->
+
+<!--</script>-->

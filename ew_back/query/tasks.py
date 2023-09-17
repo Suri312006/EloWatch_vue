@@ -44,6 +44,101 @@ async def get_name(summoner_name):
     """
     summoner = await lol.Summoner(name=summoner_name).get()
     return summoner.name
+
+@resource_manager.as_decorator
+async def get_ladder_rank(summoner) -> int:
+    """
+
+    :param summoner: must pass in an asyncio.run(get_summoner(name)) instance
+    :return: summoners ladder rank
+    """
+    league = lol.league.ApexLeague(queue='RANKED_5V5')
+
+    return "blah"
+
+@resource_manager.as_decorator
+async def testing(summoner):
+    """
+
+    :param summoner:
+    :return:
+    """
+    o = await lol.MasterLeague(queue="RANKED_SOLO_5x5", platform="na1").get()
+
+    o = await lol.League(id=o.id, platform="na1").get()
+
+    print(o)
+
+
+@resource_manager.as_decorator
+async def get_rank(summoner):
+    # TODO not sure if this is the best way to send back ranked info
+
+    # this how to access rank :0
+    comp = await lol.SummonerLeague(summoner_id= summoner.id, platform='na1').get()
+    comp = comp[0]
+
+    lp = comp.league_points
+    rank = comp.tier
+    division = comp.rank
+
+    return f'{rank} {division} {lp} LP'
+
+@resource_manager.as_decorator
+async def get_ladder_rank(summoner):
+
+    rank_to_percent = {
+        "CHALLENGER": 0.024,
+        "GRANDMASTER": 0.081,
+        "MASTER": 0.531,
+
+        "DIAMOND I": 0.921,
+        "DIAMOND II": 1.381,
+        "DIAMOND III": 2.011,
+        "DIAMOND IV": 3.211,
+
+        "EMERALD I": 4.211,
+        "EMERALD II": 5.811,
+        "EMERALD III": 8.411,
+        "EMERALD IV": 13.711,
+
+        "PLATINUM I": 15.711,
+        "PLATINUM II": 18.811,
+        "PLATINUM III": 22.911,
+        "PLATINUM IV": 29.711,
+
+        "GOLD I": 32.511,
+        "GOLD II": 36.811,
+        "GOLD III": 42.111,
+        "GOLD IV": 50.111,
+
+        "SILVER I": 53.111,
+        "SILVER II": 57.511,
+        "SILVER III": 62.711,
+        "SILVER IV": 70.211,
+
+        "BRONZE I": 73.711,
+        "BRONZE II": 78.311,
+        "BRONZE III": 83.511,
+        "BRONZE IV": 90.811,
+
+        "IRON I": 94.411,
+        "IRON II": 97.311,
+        "IRON III": 98.411,
+        "IRON IV": 98.821
+
+    }
+    rank = await lol.SummonerLeague(summoner_id=summoner.id, platform='na1').get()
+
+    rank = rank[0]
+
+    rank = f'{rank.tier} {rank.rank}'
+
+    rank_percentage = rank_to_percent[rank]
+
+    return rank_percentage
+
+
 #
 # @resource_manager.as_decorator
 # async def get_matches(summoner, number=10):
@@ -105,21 +200,7 @@ async def get_name(summoner_name):
 #     return names
 #
 #
-# @resource_manager.as_decorator
-# async def get_rank(self, *args):
-#     # TODO not sure if this is the best way to send back ranked info
-#
-#     # this how to access rank :0
-#     comp = await lol.SummonerLeague(summoner_id=self.summoner.id, platform='na1').get()
-#     comp = comp[0]
-#
-#     lp = comp.league_getpoints
-#     rank = comp.tier
-#     division = comp.rank
-#
-#     return f'{rank} {division} {lp} LP'
-#
-#
+
 # async def get_level(self):
 #     return self.summoner.level
 #

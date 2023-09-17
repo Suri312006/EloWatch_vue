@@ -1,11 +1,16 @@
 from django.db import models
-
+import uuid
 
 # Create your models here.
 class MySummoner(models.Model):
-    name = models.CharField(max_length=30)
+    id = models.UUIDField( default=uuid.uuid4, editable=False)
+    name = models.CharField(primary_key = True, max_length=30)
     level = models.IntegerField(default=0)
-    ladder_rank = models.IntegerField(default=0)
+    rank = models.CharField(max_length=20)
     ladder_rank_percentage = models.IntegerField(0)
+    #need to do more
+
+    created_at = models.DateTimeField(auto_now_add=True)
+
 
     # TODO implement profile pic here too
