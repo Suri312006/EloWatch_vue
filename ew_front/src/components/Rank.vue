@@ -2,14 +2,15 @@
 export default {
   name: "Rank",
   props: {
-    rank: Object
+    rank_data: Object,
+    required: true,
   }
 }
 </script>
 
 <template>
-<h1 class="test-white">
-  rank.rank
+<h1 class="text-blue-700">
+  {{ rank_data }}
 </h1>
 </template>
 

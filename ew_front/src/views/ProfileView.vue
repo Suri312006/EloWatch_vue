@@ -17,8 +17,8 @@
       <h1 class="ml-8 col-span-2 mt-1 ml-5 font-nova-mono text-white text-l" >Top <span class="text-blue-400 text-glow"> {{ summoner.ladder_rank_percentage }}%</span></h1>
     </div>
 
-    <div class="col-span-2">
-      <Rank v-bind:rank="rank_data"/>
+    <div v-if="summoner" class="col-span-2">
+      <Rank v-bind:rank_data="summoner.rank"/>
     </div>
   </div>
 </template>
@@ -76,7 +76,8 @@ export default {
           .then(response => {
 
             this.summoner = response.data.summoner
-            console.log(this.summoner)
+            console.log('summoner', this.summoner)
+            console.log('rank', this.summoner.rank)
           })
           .catch(error => {
             console.log('error', error)
