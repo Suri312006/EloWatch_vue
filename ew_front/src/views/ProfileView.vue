@@ -4,7 +4,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Nova+Mono&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Nova+Mono&family=PT+Mono&display=swap" rel="stylesheet">
 
-  <div class="max-w-7xl mx-auto grid grid-cols-5 gap-3">
+  <div class="bg-black grid grid-cols-12">
     <img
         :src="summoner.icon_path"
         alt="penis"
@@ -17,7 +17,9 @@
     </div>
 
     <div class="main-right col-span-1 space-y-4">
-      <Rank v-bind:rank_data="summoner.rank"/>
+
+
+      <Rank v-if="data_loaded"  v-bind:rank_data="summoner.rank"/>
     </div>
   </div>
 </template>
@@ -54,7 +56,8 @@ export default {
         rank: null,
         ladder_rank_percentage: null,
         icon_path: null
-      }
+      },
+      data_loaded: false
     }
   },
   components: {
@@ -77,6 +80,8 @@ export default {
             this.summoner = response.data.summoner
             console.log('summoner', this.summoner)
             console.log('rank', this.summoner.rank)
+
+            this.data_loaded = true
           })
           .catch(error => {
             console.log('error', error)

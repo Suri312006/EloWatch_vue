@@ -11,6 +11,6 @@ class MySummonerSerialzier(ModelSerializer):
     rank = MyRankSerializer(read_only=True)
     class Meta:
         model = MySummoner
-        fields = ('name', 'level', 'rank', 'ladder_rank_percentage', 'icon_path')
+        fields = ('id', 'name', 'level', 'rank', 'ladder_rank_percentage', 'icon_path')
 
 
