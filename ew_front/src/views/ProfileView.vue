@@ -5,23 +5,36 @@
   <link href="https://fonts.googleapis.com/css2?family=Nova+Mono&family=PT+Mono&display=swap" rel="stylesheet">
 
   <div class="bg-black grid grid-cols-12">
-    <img
-        :src="summoner.icon_path"
-        alt="penis"
-        class="rounded col-span 2"
-    >
-    <div class="flex flex-col col-span-4">
-      <h1 class="col-span-2 mt-2 ml-5 font-nova-pt-mono text-white text-5xl" >{{ summoner.name}}</h1>
-      <h1 class="ml-8 col-span-2 mt-2 ml-5 font-nova-mono text-white text-xl"  >Level {{ summoner.level }}</h1>
-      <h1 class="ml-8 col-span-2 mt-1 ml-5 font-nova-mono text-white text-l" >Top <span class="text-blue-400 text-glow"> {{ summoner.ladder_rank_percentage }}%</span></h1>
+<!--    <div class ="bg-gray-600">-->
+      <img
+          :src="summoner.icon_path"
+          alt="penis"
+          class="rounded col-span 2"
+      >
+      <div class="flex flex-col col-span-4">
+        <h1 class="col-span-2 mt-2 ml-5 font-nova-pt-mono text-white text-5xl scale-100" >{{ summoner.name}}</h1>
+        <h1 class="ml-8 col-span-2 mt-2 ml-5 font-nova-mono text-white text-xl"  >Level {{ summoner.level }}</h1>
+        <h1 class="ml-8 col-span-2 mt-1 ml-5 font-nova-mono text-white text-l" >Top <span class="text-blue-400 text-glow"> {{ summoner.ladder_rank_percentage }}%</span></h1>
+
+
+<!--      </div>-->
     </div>
 
-    <div class="main-right col-span-1 space-y-4">
+<!--    <div class="mt-6  scale-100">-->
 
 
-      <Rank v-if="data_loaded"  v-bind:rank_data="summoner.rank"/>
-    </div>
+<!--        <Rank v-if="data_loaded"  v-bind:rank_data="summoner.rank"/>-->
+<!--    </div>-->
+
+
+
   </div>
+
+  <div class="mt-6 ">
+
+
+        <Rank v-if="data_loaded"  v-bind:rank_data="summoner.rank"/>
+    </div>
 </template>
 
 <style scoped>
